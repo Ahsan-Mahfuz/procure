@@ -34,7 +34,7 @@ const HowItWorks = () => {
         From renovating your home to organizing your dream wedding, we help you
         find top-rated local professionals for every need.
       </div>
-      <Link className="bg-[#0D9276] p-3 mt-5 inline-block">Post a request</Link>
+      <Link to='/job-request' className="bg-[#0D9276] p-3 mt-5 inline-block">Post a request</Link>
 
       <div className="flex justify-center items-center gap-10 my-10 md:flex-row flex-col">
         {flow.map((item) => (

@@ -50,7 +50,7 @@ const Categories = () => {
     <div className="max-w-[1200px] mx-auto mt-10">
       <div className="flex justify-between items-center m-1.5">
         <div className="font-bold text-[35px] md:text-[50px]">Categories</div>
-        <Link to="/category" className=" hover:underline">
+        <Link to="/job-request" className=" hover:underline">
           View All
         </Link>
       </div>

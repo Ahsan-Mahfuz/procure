@@ -11,7 +11,7 @@ const JoinNow = () => {
         Add your business and to our network and join as a pro
       </p>
       <div className="flex items-center justify-center mt-5">
-        <Link to="/joinnow" className="px-4 py-2 bg-[#0D9276] text-white ">
+        <Link to="/signup" className="px-4 py-2 bg-[#0D9276] text-white ">
           Join Now
         </Link>
       </div>

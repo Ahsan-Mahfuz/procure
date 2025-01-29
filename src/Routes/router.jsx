@@ -14,8 +14,9 @@ import Notification from '../pages/notification/Notification'
 import Layout from '../pages/components/Layout'
 import About from '../pages/about/About'
 import Contact from '../pages/contact/Contact'
-import Documentation from '../pages/documentation/Documentation'
-import Logout from '../pages/logout/Logout'
+import PrivacyAndPolicy from '../pages/privacyAndPolicy/PrivacyAndPolicy'
+import TermsAndCondition from '../pages/termsAndCondition/TermsAndCondition'
+import Feedback from '../pages/feedback/Feedback'
 
 const router = createBrowserRouter([
   {
@@ -56,16 +57,6 @@ const router = createBrowserRouter([
       </Layout>
     ),
   },
-  {
-    path: '/documentation',
-    element: (
-      <Layout>
-        <AdminRoute>
-          <Documentation />
-        </AdminRoute>
-      </Layout>
-    ),
-  },
 
   {
     path: '/notification',
@@ -90,6 +81,32 @@ const router = createBrowserRouter([
     element: (
       <Layout>
         <Contact />
+      </Layout>
+    ),
+  },
+  {
+    path: '/privacy-policy',
+    element: (
+      <Layout>
+        <PrivacyAndPolicy />
+      </Layout>
+    ),
+  },
+  {
+    path: '/terms-and-condition',
+    element: (
+      <Layout>
+        <TermsAndCondition />
+      </Layout>
+    ),
+  },
+  {
+    path: '/feedback',
+    element: (
+      <Layout>
+        <AdminRoute>
+          <Feedback />
+        </AdminRoute>
       </Layout>
     ),
   },

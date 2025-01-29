@@ -15,12 +15,14 @@ const Navbar = () => {
 
   return (
     <div className="bg-[#0D9276] p-6 flex justify-between items-center text-white">
-      <section className="flex justify-center items-center gap-2">
-        <div className="text-red-500">
-          <img src={logo} alt="logo" />
-        </div>
-        <div>Logo Here</div>
-      </section>
+      <Link to="/">
+        <section className="flex justify-center items-center gap-2">
+          <div className="text-red-500">
+            <img src={logo} alt="logo" />
+          </div>
+          <div>Logo Here</div>
+        </section>
+      </Link>
 
       <div
         className="text-2xl show-hamburger cursor-pointer md:hidden"
@@ -92,12 +94,6 @@ const Navbar = () => {
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               >
                 Profile
-              </Link>
-              <Link
-                to="/documentation"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              >
-                Documentation
               </Link>
               <Link
                 to="/login"
