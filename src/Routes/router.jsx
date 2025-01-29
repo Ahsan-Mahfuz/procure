@@ -14,6 +14,8 @@ import Notification from '../pages/notification/Notification'
 import Layout from '../pages/components/Layout'
 import About from '../pages/about/About'
 import Contact from '../pages/contact/Contact'
+import Documentation from '../pages/documentation/Documentation'
+import Logout from '../pages/logout/Logout'
 
 const router = createBrowserRouter([
   {
@@ -54,6 +56,17 @@ const router = createBrowserRouter([
       </Layout>
     ),
   },
+  {
+    path: '/documentation',
+    element: (
+      <Layout>
+        <AdminRoute>
+          <Documentation />
+        </AdminRoute>
+      </Layout>
+    ),
+  },
+
   {
     path: '/notification',
     element: (
