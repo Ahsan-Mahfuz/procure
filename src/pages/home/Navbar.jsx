@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import logo from '../../assets/logo.svg'
 import { Link, useLocation } from 'react-router-dom'
 import Logout from '../logout/Logout'
+import creditImage from '../../assets/credit-icon.svg'
 
 const Navbar = () => {
   const location = useLocation()
@@ -47,7 +48,31 @@ const Navbar = () => {
         <Link to="/job-request" className={getLinkClass('/job-request')}>
           Send Job Request
         </Link>
-
+        <Link
+          to="/transaction-history"
+          className={getLinkClass('/transaction-history')}
+        >
+          Transaction History
+        </Link>
+        <Link
+          to="/customer-request"
+          className={getLinkClass('/customer-request')}
+        >
+          Customer Request
+        </Link>
+        <Link
+          to="/business-profiles"
+          className={getLinkClass('/business-profiles')}
+        >
+          Business Profiles
+        </Link>
+        <Link to="/buy-credits" className={getLinkClass('/buy-credits')}>
+          Buy Credits
+        </Link>
+        <div className="flex items-center justify-center -gap-2">
+          <img src={creditImage} alt="credit image" />
+          50
+        </div>
         <div
           className="relative"
           onMouseEnter={() => setIsDropdownOpen(true)}

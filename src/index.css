@@ -50,3 +50,11 @@ body {
     display: block;
   }
 }
+
+@media (max-width: 500px) {
+  .responsive-dashboard {
+    flex-direction: column;
+  }
+
+
+}

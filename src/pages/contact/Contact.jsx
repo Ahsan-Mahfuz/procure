@@ -24,11 +24,11 @@ const Contact = () => {
       <div className="bg-white shadow-lg rounded-lg p-8 max-w-3xl w-full">
         <header className="flex flex-col md:flex-row justify-between items-center  pb-4 mb-6">
           <h2 className="text-4xl font-semibold">Help & Support</h2>
-          <div className="text-sm text-gray-600 text-center md:text-right ">
+          <div className="text-sm  text-center md:text-right ">
             {adminInfo.map((admin) => (
               <React.Fragment key={admin.id}>
                 <p>
-                  📧 Email: <span className="font-medium">{admin.email}</span>
+                  📧 Email: <span>{admin.email}</span>
                 </p>
                 <p className="mt-1">📞 Phone: {admin.phone}</p>
               </React.Fragment>
@@ -36,9 +36,7 @@ const Contact = () => {
           </div>
         </header>
 
-        <h3 className="text-center text-2xl font-medium text-gray-700 mb-2">
-          Get in Touch
-        </h3>
+        <h3 className="text-center text-2xl font-medium mb-2">Get in Touch</h3>
         <p className="text-center text-gray-500 mb-6">Contact with us</p>
 
         <form
@@ -49,7 +47,7 @@ const Contact = () => {
           className="space-y-4"
         >
           <div>
-            <label className="block font-medium text-gray-700">Subject</label>
+            <label className="block  ">Subject</label>
             <input
               type="text"
               placeholder="Enter Subject"
@@ -60,7 +58,7 @@ const Contact = () => {
           </div>
 
           <div>
-            <label className="block font-medium text-gray-700">Opinions</label>
+            <label className="block  ">Opinions</label>
             <textarea
               placeholder="What Can We Help With?"
               value={opinion}

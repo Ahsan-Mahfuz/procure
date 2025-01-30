@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import OpenDashboard from './OpenDashboard'
-import ConnectedDashboard from './ConnectedDashboard'
-import ClosedDashboard from './ClosedDashboard'
+import History from './History'
+import RunningOrder from './RunningOrder'
+import NewRequest from './NewRequest'
+import { Select } from 'antd'
+import FormItem from 'antd/es/form/FormItem'
 
-const Dashboard = () => {
-  const [activeTab, setActiveTab] = useState('open')
-
+const CustomerRequest = () => {
+  const [activeTab, setActiveTab] = useState('New Request')
 
   const usersInfo = [
     {
@@ -39,50 +40,77 @@ const Dashboard = () => {
   return (
     <div className="  px-6">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-3xl mx-auto">
-        <div className="text-4xl font-semibold mb-6">Dashboard</div>
         <div className="flex items-center justify-center   mb-6 responsive-dashboard">
           <button
-            onClick={() => setActiveTab('open')}
+            onClick={() => setActiveTab('New Request')}
             className={`px-4 py-2 cursor-pointer ${
-              activeTab === 'open'
+              activeTab === 'New Request'
                 ? 'border-b-2 border-[#0D9276] text-[#0D9276] font-bold'
                 : 'black'
             }`}
           >
-            Open
+            New Request
           </button>
           <button
-            onClick={() => setActiveTab('connected')}
+            onClick={() => setActiveTab('Running Order')}
             className={`px-4 py-2 cursor-pointer ${
-              activeTab === 'connected'
+              activeTab === 'Running Order'
                 ? 'border-b-2 border-[#0D9276] text-[#0D9276] font-bold'
                 : 'black'
             }`}
           >
-            Connected Order
+            Running Order
           </button>
           <button
-            onClick={() => setActiveTab('closed')}
+            onClick={() => setActiveTab('History')}
             className={`px-4 py-2 cursor-pointer ${
-              activeTab === 'closed'
+              activeTab === 'History'
                 ? 'border-b-2 border-[#0D9276] text-[#0D9276] font-bold '
                 : 'black'
             }`}
           >
-            Closed
+            History
           </button>
         </div>
+        <FormItem
+          name="serviceCategories"
+          rules={[
+            {
+              required: true,
+              message: 'Please select at least one service category!',
+            },
+          ]}
+        >
+          <Select
+            mode="single"
+            allowClear
+            placeholder="Select service categories"
+            className=" h-[32px] px-4 "
+            options={[
+              { label: 'Plumbing', value: 'plumbing' },
+              { label: 'Electrical', value: 'electrical' },
+              { label: 'HVAC', value: 'hvac' },
+              { label: 'Carpentry', value: 'carpentry' },
+              { label: 'Painting', value: 'painting' },
+              { label: 'Flooring', value: 'flooring' },
+              { label: 'Roofing', value: 'roofing' },
+              { label: 'Landscaping', value: 'landscaping' },
+              { label: 'Cleaning', value: 'cleaning' },
+              { label: 'Other', value: 'other' },
+            ]}
+          />
+        </FormItem>
 
-        {activeTab === 'open' && <OpenDashboard usersInfo={usersInfo} />}
+        {activeTab === 'New Request' && <NewRequest usersInfo={usersInfo} />}
 
-        {activeTab === 'connected' && (
-          <ConnectedDashboard usersInfo={usersInfo} />
+        {activeTab === 'Running Order' && (
+          <RunningOrder usersInfo={usersInfo} />
         )}
 
-        {activeTab === 'closed' && <ClosedDashboard usersInfo={usersInfo} />}
+        {activeTab === 'History' && <History usersInfo={usersInfo} />}
       </div>
     </div>
   )
 }
 
-export default Dashboard
+export default CustomerRequest

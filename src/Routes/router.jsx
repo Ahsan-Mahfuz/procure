@@ -17,6 +17,11 @@ import Contact from '../pages/contact/Contact'
 import PrivacyAndPolicy from '../pages/privacyAndPolicy/PrivacyAndPolicy'
 import TermsAndCondition from '../pages/termsAndCondition/TermsAndCondition'
 import Feedback from '../pages/feedback/Feedback'
+import CustomerRequest from '../pages/customerRequest/CustomerRequest'
+import BusinessProfiles from '../pages/businessProfiles/BusinessProfiles'
+import BuyCredits from '../pages/buyCredits/BuyCredits'
+import Payment from '../pages/buyCredits/Payment'
+import TransactionHistory from '../pages/transactionhistory/TransactionHistory'
 
 const router = createBrowserRouter([
   {
@@ -106,6 +111,56 @@ const router = createBrowserRouter([
       <Layout>
         <AdminRoute>
           <Feedback />
+        </AdminRoute>
+      </Layout>
+    ),
+  },
+  {
+    path: '/customer-request',
+    element: (
+      <Layout>
+        <AdminRoute>
+          <CustomerRequest />
+        </AdminRoute>
+      </Layout>
+    ),
+  },
+  {
+    path: '/business-profiles',
+    element: (
+      <Layout>
+        <AdminRoute>
+          <BusinessProfiles />
+        </AdminRoute>
+      </Layout>
+    ),
+  },
+  {
+    path: '/buy-credits',
+    element: (
+      <Layout>
+        <AdminRoute>
+          <BuyCredits />
+        </AdminRoute>
+      </Layout>
+    ),
+  },
+  {
+    path: '/buy-credits/payment',
+    element: (
+      <Layout>
+        <AdminRoute>
+          <Payment />
+        </AdminRoute>
+      </Layout>
+    ),
+  },
+  {
+    path: '/transaction-history',
+    element: (
+      <Layout>
+        <AdminRoute>
+          <TransactionHistory />
         </AdminRoute>
       </Layout>
     ),
