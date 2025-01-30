@@ -22,6 +22,7 @@ import BusinessProfiles from '../pages/businessProfiles/BusinessProfiles'
 import BuyCredits from '../pages/buyCredits/BuyCredits'
 import Payment from '../pages/buyCredits/Payment'
 import TransactionHistory from '../pages/transactionhistory/TransactionHistory'
+import RootBusinessProfile from '../pages/businessProfiles/addNewBusiness/RootBusinessProfile'
 
 const router = createBrowserRouter([
   {
@@ -131,6 +132,16 @@ const router = createBrowserRouter([
       <Layout>
         <AdminRoute>
           <BusinessProfiles />
+        </AdminRoute>
+      </Layout>
+    ),
+  },
+  {
+    path: '/business-profiles/add-new-business',
+    element: (
+      <Layout>
+        <AdminRoute>
+          <RootBusinessProfile />
         </AdminRoute>
       </Layout>
     ),

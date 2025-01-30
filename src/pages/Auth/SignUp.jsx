@@ -256,13 +256,6 @@ const SignUp = () => {
                 />
               </Form.Item>
 
-              {/* <select className="select select-accent w-full max-w-xs max-w-xs h-[42px] px-4 text-white bg-black border-gray-300 rounded-md">
-                <option disabled>Dark mode or light mode?</option>
-                <option>Auto</option>
-                <option>Dark mode</option>
-                <option>Light mode</option>
-              </select> */}
-
               <Form.Item
                 name="experience"
                 label={
