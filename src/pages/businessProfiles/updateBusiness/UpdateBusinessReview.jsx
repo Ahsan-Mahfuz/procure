@@ -1,7 +1,10 @@
 import React from 'react'
 import { Form, Input, Button } from 'antd'
+import { useLocation } from 'react-router-dom'
 
-const BusinessReview = () => {
+const UpdateBusinessReview = () => {
+  const location = useLocation()
+  const { id } = location.state || {}
   const [form] = Form.useForm()
 
   const handleSend = (values) => {
@@ -62,4 +65,4 @@ const BusinessReview = () => {
   )
 }
 
-export default BusinessReview
+export default UpdateBusinessReview

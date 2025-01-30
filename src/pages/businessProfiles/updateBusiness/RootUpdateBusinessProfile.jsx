@@ -1,12 +1,16 @@
 import React, { useState } from 'react'
 import profileImage from '../../../assets/profile.png'
-import BusinessServices from './BusinessServices'
-import BusinessInfo from './BusinessInfo'
-import BusinessReview from './BusinessReview'
-import BusinessLocation from './BusinessLocation'
-import BusinessMedia from './BusinessMedia'
 
-const RootBusinessProfile = () => {
+import UpdateBusinessServices from './UpdateBusinessServices'
+import UpdateBusinessInfo from './UpdateBusinessInfo'
+import UpdateBusinessReview from './UpdateBusinessReview'
+import UpdateBusinessLocation from './UpdateBusinessLocation'
+import UpdateBusinessMedia from './UpdateBusinessMedia'
+import { useLocation } from 'react-router-dom'
+
+const RootUpdateBusinessProfile = () => {
+  const location = useLocation()
+  const { id } = location.state || {}
   const [activeTab, setActiveTab] = useState('Info')
 
   return (
@@ -76,14 +80,14 @@ const RootBusinessProfile = () => {
           </button>
         </div>
 
-        {activeTab === 'Info' && <BusinessInfo />}
-        {activeTab === 'Services' && <BusinessServices />}
-        {activeTab === 'Media' && <BusinessMedia />}
-        {activeTab === 'Location' && <BusinessLocation />}
-        {activeTab === 'Review' && <BusinessReview />}
+        {activeTab === 'Info' && <UpdateBusinessInfo id={id} />}
+        {activeTab === 'Services' && <UpdateBusinessServices id={id} />}
+        {activeTab === 'Media' && <UpdateBusinessMedia id={id} />}
+        {activeTab === 'Location' && <UpdateBusinessLocation id={id} />}
+        {activeTab === 'Review' && <UpdateBusinessReview id={id} />}
       </div>
     </div>
   )
 }
 
-export default RootBusinessProfile
+export default RootUpdateBusinessProfile

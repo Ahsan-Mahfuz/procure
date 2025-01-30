@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { PlusOutlined } from '@ant-design/icons'
 import { Image, Upload, Button } from 'antd'
+import { useLocation } from 'react-router-dom'
 
 const getBase64 = (file) =>
   new Promise((resolve, reject) => {
@@ -10,7 +11,9 @@ const getBase64 = (file) =>
     reader.onerror = (error) => reject(error)
   })
 
-const BusinessMedia = () => {
+const UpdateBusinessMedia = () => {
+  const location = useLocation()
+  const { id } = location.state || {}
   const [previewOpen, setPreviewOpen] = useState(false)
   const [previewImage, setPreviewImage] = useState('')
   const [logoFileList, setLogoFileList] = useState([])
@@ -100,4 +103,4 @@ const BusinessMedia = () => {
   )
 }
 
-export default BusinessMedia
+export default UpdateBusinessMedia

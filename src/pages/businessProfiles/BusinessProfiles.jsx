@@ -40,7 +40,7 @@ const BusinessProfiles = () => {
       {businesses.map((business) => (
         <div
           key={business.id}
-          className="flex max-lg:flex-col items-center bg-white rounded-lg shadow  p-4 my-8 "
+          className="flex max-lg:flex-col items-center rounded-lg   p-4 my-8 "
         >
           <div>
             <img
@@ -76,9 +76,13 @@ const BusinessProfiles = () => {
                   <p className="text-green-600">Pro Verified</p>
                 </div>
               )}
-              <button className="hover:bg-green-200 bg-green-100 px-4 py-2 rounded-md text-[#0D9276] cursor-pointer">
+              <Link
+                to="/business-profiles/edit-business-profile"
+                className="hover:bg-green-200 bg-green-100 px-4 py-2 rounded-md text-[#0D9276] cursor-pointer"
+                state={{ id: business.id }}
+              >
                 Edit Profile
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -89,7 +93,10 @@ const BusinessProfiles = () => {
           <img src={addNewBusiness} alt="business-profile" />
         </div>
         <p className="m-2">I want to add another business to my profile</p>
-        <Link to='/business-profiles/add-new-business' className="bg-[#0D9276] px-4 py-2 rounded-md hover:bg-green-600 cursor-pointer">
+        <Link
+          to="/business-profiles/add-new-business"
+          className="bg-[#0D9276] px-4 py-2 rounded-md hover:bg-green-600 cursor-pointer"
+        >
           Add a new business
         </Link>
       </div>
