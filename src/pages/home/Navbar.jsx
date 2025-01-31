@@ -247,6 +247,7 @@ const Navbar = () => {
                 <Link
                   to="/customer-request"
                   className={getLinkClass('/customer-request')}
+                  state={{ customerState: 'New Request' }}
                 >
                   Customer Request
                 </Link>
@@ -294,22 +295,21 @@ const Navbar = () => {
                         Dashboard
                       </Link>
 
-                      {/*
-                        <Link
-                          to="/running-order"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                        >
-                          Running Order
-                        </Link>
-                      */}
-                      {/*
-                        <Link
-                          to="/order-history"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                        >
-                          Order History
-                        </Link>
-                      */}
+                      <Link
+                        to="/customer-request"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        state={{ customerState: 'Running Order' }}
+                      >
+                        Running Order
+                      </Link>
+
+                      <Link
+                        to="/customer-request"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        state={{ customerState: 'History' }}
+                      >
+                        Order History
+                      </Link>
 
                       <Link
                         to="/transaction-history"
@@ -323,13 +323,6 @@ const Navbar = () => {
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
                         Help & Support
-                      </Link>
-
-                      <Link
-                        to="/profile"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                      >
-                        Account Settings
                       </Link>
 
                       <Link
@@ -388,30 +381,11 @@ const Navbar = () => {
                           className={`${getLinkClass(
                             '/customer-request'
                           )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black  cursor-pointer`}
+                          state={{ customerState: 'New Request' }}
                         >
                           Customer Request
                         </Link>
                       </li>
-                      {/* <li>
-                        <Link
-                          to="/running-order"
-                          className={`${getLinkClass(
-                            '/running-order'
-                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black  cursor-pointer`}
-                        >
-                          Running Order
-                        </Link>
-                      </li> */}
-                      {/* <li>
-                        <Link
-                          to="/order-history"
-                          className={`${getLinkClass(
-                            '/order-history'
-                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black  cursor-pointer`}
-                        >
-                          Order History
-                        </Link>
-                      </li> */}
 
                       <li>
                         <Link

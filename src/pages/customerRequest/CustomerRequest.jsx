@@ -4,9 +4,13 @@ import RunningOrder from './RunningOrder'
 import NewRequest from './NewRequest'
 import { Select } from 'antd'
 import FormItem from 'antd/es/form/FormItem'
+import { useLocation } from 'react-router-dom'
 
 const CustomerRequest = () => {
-  const [activeTab, setActiveTab] = useState('New Request')
+  const location = useLocation()
+
+  const { customerState } = location.state || 'New Request'
+  const [activeTab, setActiveTab] = useState(customerState) // 'New Request', 'History', 'Running Order'
 
   const usersInfo = [
     {
