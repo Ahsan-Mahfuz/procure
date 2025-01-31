@@ -37,7 +37,7 @@ const SignUp = () => {
           className="text-lg mb-8 whitespace-nowrap"
           style={{ fontSize: 'clamp(12px, 5vw, 20px)' }}
         >
-          please Enter your account details.
+          Please Enter your account details.
         </p>
 
         <div className="flex lg:flex-row flex-col items-center justify-center mb-4">

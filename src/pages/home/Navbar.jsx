@@ -19,6 +19,7 @@ const Navbar = () => {
       ? 'underline underline-offset-8 decoration-3'
       : 'no-underline'
 
+  const [hover, setHover] = useState(false)
   return (
     <div className="bg-[#0D9276] p-6 flex justify-between items-center text-white">
       <Link to="/">
@@ -45,9 +46,38 @@ const Navbar = () => {
                 <Link to="/contact-us" className={getLinkClass('/contact-us')}>
                   Contact Us
                 </Link>
-                <section className="px-6 py-2 rounded-xl bg-white text-black transition duration-300 hover:bg-green-400">
-                  <Link to="/login">Sign In</Link>
-                </section>
+                <div
+                  className="relative inline-block"
+                  onMouseEnter={() => setHover(true)}
+                  onMouseLeave={() => setHover(false)}
+                >
+                  <div
+                    className={`relative w-32 h-12 bg-white text-black flex justify-center items-center rounded-md shadow-lg transition-all duration-700 ${
+                      hover ? 'opacity-0' : 'opacity-100'
+                    }`}
+                  >
+                    Sign In
+                  </div>
+
+                  <div
+                    className={`absolute top-0 left-0 w-32 h-12 flex items-center overflow-hidden transition-all duration-300 ${
+                      hover ? 'opacity-100 scale-100 ' : 'opacity-0 scale-90'
+                    }`}
+                  >
+                    <Link
+                      to="/login"
+                      className="flex-1  bg-green-700 hover:bg-green-900 text-white text-center py-3  rounded-l-md  duration-300"
+                    >
+                      Sign In
+                    </Link>
+                    <Link
+                      to="/signup"
+                      className="flex-1  bg-black text-white hover:bg-white hover:text-black text-center py-3  rounded-r-md  duration-300"
+                    >
+                      Sign Up
+                    </Link>
+                  </div>
+                </div>
               </div>
 
               <div className="relative max-md:block hidden cursor-pointer">
