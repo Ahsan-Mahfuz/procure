@@ -3,10 +3,15 @@ import logo from '../../assets/logo.svg'
 import { Link, useLocation } from 'react-router-dom'
 import Logout from '../logout/Logout'
 import creditImage from '../../assets/credit-icon.svg'
+import { Menu, X } from 'lucide-react'
+import { FaRegUser } from 'react-icons/fa'
+import { IoIosArrowDown } from 'react-icons/io'
+import { IoNotificationsOutline } from 'react-icons/io5'
 
 const Navbar = () => {
   const location = useLocation()
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const [userType, setUserType] = useState('login-Vendor') // Normal, login-Normal, login-Vendor
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
   const getLinkClass = (path) =>
@@ -25,133 +30,472 @@ const Navbar = () => {
         </section>
       </Link>
 
-      <div
-        className="text-2xl show-hamburger cursor-pointer md:hidden"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-      >
-        ☰
-      </div>
+      <section>
+        {/* Normal User Navbar */}
+        <div>
+          {userType === 'Normal' && (
+            <>
+              <div className="flex max-md:hidden justify-between items-center gap-10">
+                <Link to="/" className={getLinkClass('/')}>
+                  Home
+                </Link>
+                <Link to="/about-us" className={getLinkClass('/about-us')}>
+                  About Us
+                </Link>
+                <Link to="/contact-us" className={getLinkClass('/contact-us')}>
+                  Contact Us
+                </Link>
+                <section className="px-6 py-2 rounded-xl bg-white text-black transition duration-300 hover:bg-green-400">
+                  <Link to="/login">Sign In</Link>
+                </section>
+              </div>
 
-      <section className="hidden md:flex justify-between items-center gap-10">
-        <Link to="/" className={getLinkClass('/')}>
-          Home
-        </Link>
-        <Link to="/about-us" className={getLinkClass('/about-us')}>
-          About Us
-        </Link>
-        <Link to="/contact-us" className={getLinkClass('/contact-us')}>
-          Contact Us
-        </Link>
-        <Link to="/dashboard" className={getLinkClass('/dashboard')}>
-          Dashboard
-        </Link>
-        <Link to="/job-request" className={getLinkClass('/job-request')}>
-          Send Job Request
-        </Link>
-        <Link
-          to="/transaction-history"
-          className={getLinkClass('/transaction-history')}
-        >
-          Transaction History
-        </Link>
-        <Link
-          to="/customer-request"
-          className={getLinkClass('/customer-request')}
-        >
-          Customer Request
-        </Link>
-        <Link
-          to="/business-profiles"
-          className={getLinkClass('/business-profiles')}
-        >
-          Business Profiles
-        </Link>
-        <Link to="/buy-credits" className={getLinkClass('/buy-credits')}>
-          Buy Credits
-        </Link>
-        <div className="flex items-center justify-center -gap-2">
-          <img src={creditImage} alt="credit image" />
-          50
-        </div>
-        <div
-          className="relative"
-          onMouseEnter={() => setIsDropdownOpen(true)}
-          onMouseLeave={() => setIsDropdownOpen(false)}
-        >
-          <div className="flex items-center gap-1 cursor-pointer">
-            <span className="flex items-center gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                />
-              </svg>
-            </span>
-            <span>Ahsan Mafhuz</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </div>
+              <div className="relative max-md:block hidden cursor-pointer">
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="cursor-pointer p-2 rounded-md bg-gray-800 text-white hover:bg-gray-700 transition-all"
+                >
+                  {isOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
 
-          {isDropdownOpen && (
-            <div className="absolute top-6 -right-2.5 z-10 bg-white rounded shadow-lg p-1 w-48">
-              <Link
-                to="/profile"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              >
-                Profile
-              </Link>
-              <Link
-                to="/login"
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-              >
-                <Logout />
-              </Link>
-            </div>
+                {isOpen && (
+                  <div
+                    className="z-10 cursor-pointer absolute top-12 right-0 w-36  bg-[#dbefea] text-black shadow-lg rounded-lg p-4"
+                    onMouseLeave={() => setIsOpen(false)}
+                  >
+                    <ul className="space-y-2">
+                      <li>
+                        <Link
+                          to="/"
+                          className={`${getLinkClass(
+                            '/'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black cursor-pointer`}
+                        >
+                          Home
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/about-us"
+                          className={`${getLinkClass(
+                            '/about-us'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black cursor-pointer`}
+                        >
+                          About Us
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          to="/contact-us"
+                          className={`${getLinkClass(
+                            '/contact-us'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black cursor-pointer`}
+                        >
+                          Contact Us
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          to="/login"
+                          className={`${getLinkClass(
+                            '/login'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black cursor-pointer`}
+                        >
+                          Sign In
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </>
           )}
         </div>
 
-        <Link to="/notification" className={getLinkClass('/notification')}>
-          <span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118.6 14H17V9a5 5 0 00-10 0v5H5.4a2.032 2.032 0 01-1.995 1.595L3 17h5m7 0v1a3 3 0 11-6 0v-1m6 0H9"
-              />
-            </svg>
-          </span>
-        </Link>
-      </section>
+        {/* Login Normal User Navbar */}
+        <div>
+          {userType === 'login-Normal' && (
+            <>
+              <div className="flex max-md:hidden justify-between items-center gap-10">
+                <Link to="/dashboard" className={getLinkClass('/dashboard')}>
+                  Dashboard
+                </Link>
+                <Link
+                  to="/job-request"
+                  className={getLinkClass('/job-request')}
+                >
+                  Send Job Request
+                </Link>
+                <div
+                  className="relative"
+                  onMouseEnter={() => setIsDropdownOpen(true)}
+                  onMouseLeave={() => setIsDropdownOpen(false)}
+                >
+                  <div className="flex items-center gap-1 cursor-pointer">
+                    <FaRegUser />
+                    <span>Ahsan Mafhuz</span>
+                    <IoIosArrowDown />
+                  </div>
 
-      <section className="hidden md:block px-6 py-2 rounded-xl bg-white text-black transition duration-300 hover:bg-green-400">
-        <Link to="/login">Sign In</Link>
+                  {isDropdownOpen && (
+                    <div className="absolute top-6 -right-2.5 z-10 bg-white rounded shadow-lg p-1 w-48">
+                      <Link
+                        to="/profile"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        Profile
+                      </Link>
+                      <Link
+                        to="/login"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        <Logout />
+                      </Link>
+                    </div>
+                  )}
+                </div>
+                <Link
+                  to="/notification"
+                  className={getLinkClass('/notification')}
+                >
+                  <IoNotificationsOutline className="text-3xl text-black hover:bg-gray-200 cursor-pointer bg-white p-1 rounded-full" />
+                </Link>
+              </div>
+
+              <div className="relative max-md:block hidden cursor-pointer">
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="cursor-pointer p-2 rounded-md bg-gray-800 text-white hover:bg-gray-700 transition-all"
+                >
+                  {isOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+
+                {isOpen && (
+                  <div
+                    className="z-10 cursor-pointer  absolute top-12 right-0 w-56 text-black  bg-[#dbefea] shadow-lg rounded-lg p-4"
+                    onMouseLeave={() => setIsOpen(false)}
+                  >
+                    <ul className="space-y-2">
+                      <li>
+                        <Link
+                          to="/dashboard"
+                          className={`${getLinkClass(
+                            '/dashboard'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black cursor-pointer`}
+                        >
+                          Dashboard
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          to="/job-request"
+                          className={`${getLinkClass(
+                            '/job-request'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black  cursor-pointer`}
+                        >
+                          Send Job Request
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          to="/profile"
+                          className={`${getLinkClass(
+                            '/profile'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black  cursor-pointer`}
+                        >
+                          Profile
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          to="/notification"
+                          className={`${getLinkClass(
+                            '/notification'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black  cursor-pointer`}
+                        >
+                          Notifications
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          to="/login"
+                          className={`${getLinkClass(
+                            '/login'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black  cursor-pointer`}
+                        >
+                          Logout
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </>
+          )}
+        </div>
+
+        {/* Login Vendor User Navbar */}
+        <div>
+          {userType === 'login-Vendor' && (
+            <>
+              <div className="flex max-lg:hidden justify-between items-center gap-10">
+                <Link
+                  to="/customer-request"
+                  className={getLinkClass('/customer-request')}
+                >
+                  Customer Request
+                </Link>
+                <Link
+                  to="/business-profiles"
+                  className={getLinkClass('/business-profiles')}
+                >
+                  Business Profiles
+                </Link>
+                <Link
+                  to="/buy-credits"
+                  className={getLinkClass('/buy-credits')}
+                >
+                  Buy Credits
+                </Link>
+
+                <div className="flex items-center justify-center -gap-2">
+                  <img src={creditImage} alt="credit image" />
+                  50
+                </div>
+                <div
+                  className="relative"
+                  onMouseEnter={() => setIsDropdownOpen(true)}
+                  onMouseLeave={() => setIsDropdownOpen(false)}
+                >
+                  <div className="flex items-center gap-1 cursor-pointer">
+                    <FaRegUser />
+                    <span>Ahsan Mafhuz</span>
+                    <IoIosArrowDown />
+                  </div>
+
+                  {isDropdownOpen && (
+                    <div className="absolute top-6 -right-2.5 z-10 bg-white rounded shadow-lg p-1 w-48">
+                      <Link
+                        to="/profile"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        Account Settings
+                      </Link>
+
+                      <Link
+                        to="/dashboard"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        Dashboard
+                      </Link>
+
+                      {/*
+                        <Link
+                          to="/running-order"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          Running Order
+                        </Link>
+                      */}
+                      {/*
+                        <Link
+                          to="/order-history"
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          Order History
+                        </Link>
+                      */}
+
+                      <Link
+                        to="/transaction-history"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        Transaction History
+                      </Link>
+
+                      <Link
+                        to="/contact-us"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        Help & Support
+                      </Link>
+
+                      <Link
+                        to="/profile"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        Account Settings
+                      </Link>
+
+                      <Link
+                        to="/notification"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        Notifications
+                      </Link>
+
+                      <Link
+                        to="/login"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        <Logout />
+                      </Link>
+                    </div>
+                  )}
+                </div>
+
+                <Link
+                  to="/notification"
+                  className={getLinkClass('/notification')}
+                >
+                  <IoNotificationsOutline className="text-3xl text-black hover:bg-gray-200 cursor-pointer bg-white p-1 rounded-full" />
+                </Link>
+              </div>
+
+              <div className="relative max-lg:block hidden cursor-pointer">
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="cursor-pointer p-2 rounded-md bg-gray-800 text-white hover:bg-gray-700 transition-all"
+                >
+                  {isOpen ? <X size={24} /> : <Menu size={24} />}
+                </button>
+
+                {isOpen && (
+                  <div
+                    className="z-10 cursor-pointer  absolute top-12 right-0 w-56 text-black  bg-[#dbefea] shadow-lg rounded-lg p-4"
+                    onMouseLeave={() => setIsOpen(false)}
+                  >
+                    <ul className="space-y-2">
+                      <li>
+                        <Link
+                          to="/dashboard"
+                          className={`${getLinkClass(
+                            '/dashboard'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black cursor-pointer`}
+                        >
+                          Dashboard
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          to="/customer-request"
+                          className={`${getLinkClass(
+                            '/customer-request'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black  cursor-pointer`}
+                        >
+                          Customer Request
+                        </Link>
+                      </li>
+                      {/* <li>
+                        <Link
+                          to="/running-order"
+                          className={`${getLinkClass(
+                            '/running-order'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black  cursor-pointer`}
+                        >
+                          Running Order
+                        </Link>
+                      </li> */}
+                      {/* <li>
+                        <Link
+                          to="/order-history"
+                          className={`${getLinkClass(
+                            '/order-history'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black  cursor-pointer`}
+                        >
+                          Order History
+                        </Link>
+                      </li> */}
+
+                      <li>
+                        <Link
+                          to="/buy-credits"
+                          className={`${getLinkClass(
+                            '/buy-credits'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black  cursor-pointer`}
+                        >
+                          Buy Credits
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          to="/business-profiles"
+                          className={`${getLinkClass(
+                            '/business-profiles'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black  cursor-pointer`}
+                        >
+                          Business Profiles
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          to="/transaction-history"
+                          className={`${getLinkClass(
+                            '/transaction-history'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black  cursor-pointer`}
+                        >
+                          Transaction History
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          to="/contact-us"
+                          className={`${getLinkClass(
+                            '/contact-us'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black  cursor-pointer`}
+                        >
+                          Help & Support
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          to="/profile"
+                          className={`${getLinkClass(
+                            '/profile'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black  cursor-pointer`}
+                        >
+                          Account Settings
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          to="/notification"
+                          className={`${getLinkClass(
+                            '/notification'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black  cursor-pointer`}
+                        >
+                          Notifications
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          to="/login"
+                          className={`${getLinkClass(
+                            '/login'
+                          )} p-2 hover:underline hover:underline-offset-8 hover:decoration-black  cursor-pointer`}
+                        >
+                          Logout
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
+            </>
+          )}
+        </div>
       </section>
     </div>
   )
