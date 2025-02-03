@@ -3,7 +3,6 @@ import addNewBusiness from '../../assets/addNewBusiness.svg'
 import { MdOutlineVerified } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import { Card, Badge } from 'antd'
-import { EditOutlined } from '@ant-design/icons'
 import { RiEditBoxLine } from 'react-icons/ri'
 
 const businesses = [
