@@ -23,7 +23,7 @@ const Contact = () => {
     <div className="mt-10  flex items-center justify-center p-6">
       <div className="bg-white shadow-lg rounded-lg p-4  max-w-5xl max-sm:p-1 max-sm:shadow-none w-full">
         <header className="flex flex-col md:flex-row justify-between items-center  pb-4 mb-6">
-          <h2 className="text-3xl font-semibold">Help & Support</h2>
+          <h2 className="text-2xl font-semibold">Help & Support</h2>
           <div className="text-sm  text-center md:text-right ">
             {adminInfo.map((admin) => (
               <React.Fragment key={admin.id}>
