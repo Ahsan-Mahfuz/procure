@@ -27,7 +27,7 @@ const BuyCredits = () => {
   ]
 
   return (
-    <div className="max-w-3xl mx-auto p-5 shadow mt-10">
+    <div className="max-w-5xl mx-auto p-5 shadow mt-10">
       <div className="bg-orange-100 text-center py-3 rounded-lg shadow-md">
         <p className="font-semibold">Buy Credits</p>
         <p className="text-gray-700">

@@ -21,9 +21,9 @@ const Contact = () => {
 
   return (
     <div className="mt-10  flex items-center justify-center p-6">
-      <div className="bg-white shadow-lg rounded-lg p-8 max-w-3xl w-full">
+      <div className="bg-white shadow-lg rounded-lg p-4  max-w-5xl max-sm:p-1 max-sm:shadow-none w-full">
         <header className="flex flex-col md:flex-row justify-between items-center  pb-4 mb-6">
-          <h2 className="text-4xl font-semibold">Help & Support</h2>
+          <h2 className="text-3xl font-semibold">Help & Support</h2>
           <div className="text-sm  text-center md:text-right ">
             {adminInfo.map((admin) => (
               <React.Fragment key={admin.id}>
@@ -36,8 +36,7 @@ const Contact = () => {
           </div>
         </header>
 
-        <h3 className="text-center text-2xl font-medium mb-2">Get in Touch</h3>
-        <p className="text-center text-gray-500 mb-6">Contact with us</p>
+        
 
         <form
           onSubmit={(e) => {
@@ -69,7 +68,7 @@ const Contact = () => {
 
           <button
             type="submit"
-            className="cursor-pointer w-full bg-[#0D9276] text-white py-3 rounded-lg text-lg font-medium hover:bg-green-700 transition"
+            className="cursor-pointer w-full bg-[#0D9276] text-white py-3 rounded-lg text-lg font-medium hover:bg-green-900 transition"
           >
             Send
           </button>

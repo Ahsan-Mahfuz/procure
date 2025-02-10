@@ -4,7 +4,7 @@ const ConnectedDashboard = ({ usersInfo }) => {
   return (
     <div className="space-y-4 flex flex-col gap-10">
       {usersInfo.map((userInfo) => (
-        <div className="p-6  rounded-md bg-gray-200" key={userInfo.id}>
+        <div className="p-6  rounded-md bg-gray-100" key={userInfo.id}>
           <section className="flex justify-between items-center max-lg:flex-col">
             <div className="flex gap-2 items-center max-lg:flex-col">
               <div>
@@ -28,7 +28,7 @@ const ConnectedDashboard = ({ usersInfo }) => {
                   {userInfo.urgency}
                 </div>
               </p>
-              <p className="text-sm text-red-500 text-xl">
+              <p className="text-md text-red-500 ">
                 Services Type: {userInfo.serviceType}
               </p>
             </div>

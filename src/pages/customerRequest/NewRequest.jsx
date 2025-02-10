@@ -3,82 +3,52 @@ import { Link } from 'react-router-dom'
 
 const NewRequest = ({ usersInfo }) => {
   return (
-    <div className="space-y-4 flex flex-col gap-10">
-      {usersInfo.map((userInfo) => (
-        <div className="p-6  rounded-md bg-gray-200" key={userInfo.id}>
-          <section className="flex justify-between items-center max-lg:flex-col">
-            <div className="flex gap-2 items-center max-lg:flex-col">
-              <div>
-                <img
-                  src={userInfo.image}
-                  alt="image"
-                  className="w-20 h-20  rounded-full"
-                />
-              </div>
-              <div>
-                <h3 className="text-xl font-semibold">{userInfo.name}</h3>
-                <p className="text-sm text-[#0D9276] mt-2">
-                  Time: {userInfo.time}
-                </p>
-              </div>
+    <div className="space-y-4 flex flex-col gap-6">
+      {usersInfo.map((user) => (
+        <div
+          className="px-4 py-6 rounded-md bg-gray-100 shadow-sm flex flex-wrap justify-between  gap-5 xl:flex-nowrap"
+          key={user.id}
+        >
+          <div className="flex items-center gap-4 w-full xl:w-auto">
+            <div className="w-10 h-10 bg-green-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+              {user.name
+                .split(' ')
+                .map((n) => n[0])
+                .join('')}
             </div>
-            <div>
-              <p className="text-sm  flex  items-center justify-center ">
-                Urgency:{'  '}
-                <div className="ml-2 bg-black rounded-4xl text-white flex px-5 py-2  items-center justify-center">
-                  {userInfo.urgency}
-                </div>
-              </p>
-              <p className="text-sm text-red-500 text-xl">
-                Services Type: {userInfo.serviceType}
+            <div className="flex flex-col gap-1">
+              <p className="text-sm font-bold">Name:</p>
+              <h3 className="text-md font-semibold">{user.name}</h3>
+              <p className="text-xs text-gray-500">Time: {user.time}</p>
+            </div>
+          </div>
+          <div className="flex flex-col gap-1 w-full xl:w-auto">
+            <p className="text-sm font-bold">Type:</p>
+            <div className="flex items-center gap-2">
+              <p className="text-md">Urgency:</p>
+              <p className="text-xs bg-black text-white px-3 py-1 rounded-md">
+                {user.urgency}
               </p>
             </div>
-          </section>
-          <div className="flex items-center mt-5 text-gray-600">
-            <svg
-              className="w-5 h-5 mr-2 text-gray-500"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M12 2C8.686 2 6 4.686 6 8c0 5.25 6 12 6 12s6-6.75 6-12c0-3.314-2.686-6-6-6z"
-              ></path>
-              <circle cx="12" cy="8" r="3" fill="currentColor"></circle>
-            </svg>
-            <span>{userInfo.address}</span>
-          </div>
-
-          <p className="text-gray-700 font-bold mt-5 ">Contact Info:</p>
-          <div className="flex justify-between max-lg:flex-col">
-            <p>
-              Phone Number:{' '}
-              <div className="border border-gray-400 rounded-4xl p-3 max-lg:text-xs">
-                {userInfo.phone}
-              </div>
-            </p>
-            <p>
-              Email:{' '}
-              <div className="border border-gray-400 rounded-4xl p-3 max-lg:text-xs">
-                {userInfo.email}
-              </div>
+            <p className="text-xs text-red-500 font-semibold">
+              Services Type: {user.serviceType}
             </p>
           </div>
-          <div>
-            <p className="text-gray-700 font-bold mt-5 ">Description:</p>
-            <p className="mt-1">{userInfo.description}</p>
+          <div className="flex flex-col gap-1 w-full xl:w-auto">
+            <p className="text-sm font-bold">Contact Info:</p>
+            <p className="text-xs text-blue-500">---------------------</p>
+            <p className="text-xs text-blue-500">---------------------</p>
           </div>
-
-          <div className="flex items-center justify-end">
+          <div className="flex flex-col gap-1 w-full xl:w-auto">
+            <p className="text-md font-bold">Location:</p>
+            <p className="text-xs text-gray-700">{user.address}</p>
+          </div>
+          <div className="flex items-center justify-center w-full xl:w-auto">
             <Link
               to={'/buy-credits'}
-              className="p-3 bg-[#0D9276] w-30 rounded-4xl flex items-center justify-center mt-5"
+              className="px-4 py-2 bg-teal-700 text-white rounded-md hover:bg-teal-800"
             >
-              Buy Credits
+              Buy Credit
             </Link>
           </div>
         </div>

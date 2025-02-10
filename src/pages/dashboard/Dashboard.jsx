@@ -6,7 +6,6 @@ import ClosedDashboard from './ClosedDashboard'
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('open')
 
-
   const usersInfo = [
     {
       id: 1,
@@ -37,8 +36,8 @@ const Dashboard = () => {
   ]
 
   return (
-    <div className="  px-6">
-      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-3xl mx-auto">
+    <div className="  px-2">
+      <div className="bg-white shadow-sm rounded-lg p-8 max-sm:px-1 w-full max-w-7xl    mx-auto">
         <div className="text-4xl font-semibold mb-6">Dashboard</div>
         <div className="flex items-center justify-center   mb-6 responsive-dashboard">
           <button

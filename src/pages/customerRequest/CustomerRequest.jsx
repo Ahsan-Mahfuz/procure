@@ -25,6 +25,7 @@ const CustomerRequest = () => {
       description:
         "Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
       image: 'https://picsum.photos/id/1015/200/300',
+      reviews: "4.0",
     },
     {
       id: 2,
@@ -38,12 +39,13 @@ const CustomerRequest = () => {
       description:
         "Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
       image: 'https://picsum.photos/id/1015/200/300',
+      reviews: "5.0",
     },
   ]
 
   return (
     <div className="  px-6">
-      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-3xl mx-auto">
+      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-7xl mx-auto">
         <div className="flex items-center justify-center   mb-6 responsive-dashboard">
           <button
             onClick={() => setActiveTab('New Request')}
@@ -90,7 +92,9 @@ const CustomerRequest = () => {
             allowClear
             placeholder="Select service categories"
             className=" h-[32px] px-4 "
+            defaultValue="all"
             options={[
+              { label: 'All', value: 'all' },
               { label: 'Plumbing', value: 'plumbing' },
               { label: 'Electrical', value: 'electrical' },
               { label: 'HVAC', value: 'hvac' },
