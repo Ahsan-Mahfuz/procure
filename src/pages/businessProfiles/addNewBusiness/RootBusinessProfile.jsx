@@ -16,6 +16,8 @@ const RootBusinessProfile = () => {
           <div className="mb-3 text-2xl font-bold">Business Profile</div>
           <img
             src={profileImage}
+            loading="lazy"
+            decoding="async"
             alt="Profile"
             className="w-24 h-24 rounded-full border object-cover"
           />

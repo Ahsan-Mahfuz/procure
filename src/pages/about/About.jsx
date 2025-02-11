@@ -15,6 +15,8 @@ const About = () => {
           <img
             src={aboutUs}
             alt="about-us-picture"
+            loading="lazy"
+            decoding="async"
             className="max-w-[350px] w-full md:float-left float-none mr-3"
           />
           <div>

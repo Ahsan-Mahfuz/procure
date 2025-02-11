@@ -25,7 +25,7 @@ const Navbar = () => {
       <Link to="/">
         <section className="flex justify-center items-center gap-2">
           <div className="text-red-500">
-            <img src={logo} alt="logo" />
+            <img src={logo} loading="lazy" decoding="async" alt="logo" />
           </div>
           <div>Logo Here</div>
         </section>
@@ -295,7 +295,12 @@ const Navbar = () => {
                 </Link>
 
                 <div className="flex items-center justify-center -gap-2">
-                  <img src={creditImage} alt="credit image" />
+                  <img
+                    src={creditImage}
+                    loading="lazy"
+                    decoding="async"
+                    alt="credit image"
+                  />
                   50
                 </div>
                 <div

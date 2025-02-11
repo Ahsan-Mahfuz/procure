@@ -149,7 +149,12 @@ const BusinessProfiles = () => {
 
         <div className="bg-gray-900 text-white p-6 rounded-lg mt-6 text-center">
           <div className="flex items-center justify-center">
-            <img src={addNewBusiness} alt="business-profile" />
+            <img
+              src={addNewBusiness}
+              loading="lazy"
+              decoding="async"
+              alt="business-profile"
+            />
           </div>
           <p className="m-2">I want to add another business to my profile</p>
           <Link

@@ -29,6 +29,8 @@ const SignUp = () => {
         <div className="w-1/2 hidden lg:block">
           <img
             src={rightSideImage}
+            loading="lazy"
+            decoding="async"
             alt="Login"
             className="w-full h-full object-cover"
           />

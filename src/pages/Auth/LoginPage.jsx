@@ -132,6 +132,8 @@ const LoginPage = () => {
           <img
             src={rightSideImage}
             alt="Login"
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover"
           />
         </div>

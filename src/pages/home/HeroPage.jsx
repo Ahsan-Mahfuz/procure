@@ -67,7 +67,7 @@ const HeroPage = () => {
           </span>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-4 text-center md:text-left">
+        <div className="flex flex-col md:flex-row mb-10  gap-4 text-center md:text-left">
           {usersInfo.map((user) => (
             <div
               key={user.id}
@@ -87,11 +87,11 @@ const HeroPage = () => {
         </div>
       </section>
 
-      <section className="w-full md:w-1/2 flex justify-center mt-10 md:mt-0">
+      <section className="w-full md:w-1/2 flex justify-center mt-10 md:mt-0 animation-image">
         <img
           src={heroImage}
           alt="hero-section-picture"
-          className="max-w-full h-auto"
+          className="max-w-[600px]  w-full h-auto"
           loading="lazy"
           decoding="async"
         />

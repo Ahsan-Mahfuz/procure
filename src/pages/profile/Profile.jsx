@@ -111,6 +111,8 @@ const Profile = () => {
             <img
               src={formData.image ? formData.image : profileImage}
               alt="Profile"
+              loading="lazy"
+              decoding="async"
               className="w-24 h-24 rounded-full border object-cover"
             />
 
