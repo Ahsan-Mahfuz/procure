@@ -25,7 +25,7 @@ const HeroPage = () => {
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row items-center  bg-white p-3 shadow-md space-y-1 md:space-x-3 md:space-y-0 mt-8 md:mt-10 w-[800px] rounded-lg">
+        <div className="flex flex-col md:flex-row items-center  bg-white p-3 shadow-md space-y-1 md:space-x-3 md:space-y-0 mt-8 md:mt-10 w-full rounded-lg">
           <div className="flex items-center gap-1.5 px-3 py-2 rounded-lg w-full ">
             <FaBriefcase className="text-[#0D9276]" size={20} />
             <Input
