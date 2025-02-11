@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import OpenDashboard from './OpenDashboard'
 import ConnectedDashboard from './ConnectedDashboard'
 import ClosedDashboard from './ClosedDashboard'
+import SEO from '../seo/SEO'
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('open')
@@ -36,51 +37,58 @@ const Dashboard = () => {
   ]
 
   return (
-    <div className="  px-2">
-      <div className="bg-white shadow-sm rounded-lg p-8 max-sm:px-1 w-full max-w-7xl    mx-auto">
-        <div className="text-4xl font-semibold mb-6">Dashboard</div>
-        <div className="flex items-center justify-center   mb-6 responsive-dashboard">
-          <button
-            onClick={() => setActiveTab('open')}
-            className={`px-4 py-2 cursor-pointer ${
-              activeTab === 'open'
-                ? 'border-b-2 border-[#0D9276] text-[#0D9276] font-bold'
-                : 'black'
-            }`}
-          >
-            Open
-          </button>
-          <button
-            onClick={() => setActiveTab('connected')}
-            className={`px-4 py-2 cursor-pointer ${
-              activeTab === 'connected'
-                ? 'border-b-2 border-[#0D9276] text-[#0D9276] font-bold'
-                : 'black'
-            }`}
-          >
-            Connected Order
-          </button>
-          <button
-            onClick={() => setActiveTab('closed')}
-            className={`px-4 py-2 cursor-pointer ${
-              activeTab === 'closed'
-                ? 'border-b-2 border-[#0D9276] text-[#0D9276] font-bold '
-                : 'black'
-            }`}
-          >
-            Closed
-          </button>
+    <>
+      <SEO
+        title="Dashboard"
+        description="Manage your procurement requests and connect with reliable suppliers on Procure."
+        keywords="Procure, dashboard, procurement, suppliers"
+      />
+      <div className="  px-2">
+        <div className="bg-white shadow-sm rounded-lg p-8 max-sm:px-1 w-full max-w-7xl    mx-auto">
+          <div className="text-4xl font-semibold mb-6">Dashboard</div>
+          <div className="flex items-center justify-center   mb-6 responsive-dashboard">
+            <button
+              onClick={() => setActiveTab('open')}
+              className={`px-4 py-2 cursor-pointer ${
+                activeTab === 'open'
+                  ? 'border-b-2 border-[#0D9276] text-[#0D9276] font-bold'
+                  : 'black'
+              }`}
+            >
+              Open
+            </button>
+            <button
+              onClick={() => setActiveTab('connected')}
+              className={`px-4 py-2 cursor-pointer ${
+                activeTab === 'connected'
+                  ? 'border-b-2 border-[#0D9276] text-[#0D9276] font-bold'
+                  : 'black'
+              }`}
+            >
+              Connected Order
+            </button>
+            <button
+              onClick={() => setActiveTab('closed')}
+              className={`px-4 py-2 cursor-pointer ${
+                activeTab === 'closed'
+                  ? 'border-b-2 border-[#0D9276] text-[#0D9276] font-bold '
+                  : 'black'
+              }`}
+            >
+              Closed
+            </button>
+          </div>
+
+          {activeTab === 'open' && <OpenDashboard usersInfo={usersInfo} />}
+
+          {activeTab === 'connected' && (
+            <ConnectedDashboard usersInfo={usersInfo} />
+          )}
+
+          {activeTab === 'closed' && <ClosedDashboard usersInfo={usersInfo} />}
         </div>
-
-        {activeTab === 'open' && <OpenDashboard usersInfo={usersInfo} />}
-
-        {activeTab === 'connected' && (
-          <ConnectedDashboard usersInfo={usersInfo} />
-        )}
-
-        {activeTab === 'closed' && <ClosedDashboard usersInfo={usersInfo} />}
       </div>
-    </div>
+    </>
   )
 }
 

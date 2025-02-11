@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Table, Select, Typography } from 'antd'
+import SEO from '../seo/SEO'
 
 const { Title } = Typography
 const { Option } = Select
@@ -46,30 +47,37 @@ const TransactionHistory = () => {
   const [timeFilter, setTimeFilter] = useState('Last 3 Month')
 
   return (
-    <div className="p-4 w-full max-w-6xl mx-auto">
-      <Title level={3}>Transaction History</Title>
-
-      <div className="flex justify-end gap-4 mb-4">
-        <Select value={filter} onChange={setFilter} className="w-40">
-          <Option value="All">All</Option>
-          <Option value="Quotes">Quotes</Option>
-          <Option value="Invoices">Invoices</Option>
-        </Select>
-
-        <Select value={timeFilter} onChange={setTimeFilter} className="w-40">
-          <Option value="Last 3 Month">Last 3 Month</Option>
-          <Option value="Last 6 Month">Last 6 Month</Option>
-          <Option value="Last Year">Last Year</Option>
-        </Select>
-      </div>
-
-      <Table
-        columns={columns}
-        dataSource={transactions}
-        bordered
-        scroll={{ x: 400 }}
+    <>
+      <SEO
+        title="Transaction History"
+        description="View your transaction history on Procure."
+        keywords="Procure, transaction history, quotes, invoices"
       />
-    </div>
+      <div className="p-4 w-full max-w-6xl mx-auto">
+        <Title level={3}>Transaction History</Title>
+
+        <div className="flex justify-end gap-4 mb-4">
+          <Select value={filter} onChange={setFilter} className="w-40">
+            <Option value="All">All</Option>
+            <Option value="Quotes">Quotes</Option>
+            <Option value="Invoices">Invoices</Option>
+          </Select>
+
+          <Select value={timeFilter} onChange={setTimeFilter} className="w-40">
+            <Option value="Last 3 Month">Last 3 Month</Option>
+            <Option value="Last 6 Month">Last 6 Month</Option>
+            <Option value="Last Year">Last Year</Option>
+          </Select>
+        </div>
+
+        <Table
+          columns={columns}
+          dataSource={transactions}
+          bordered
+          scroll={{ x: 400 }}
+        />
+      </div>
+    </>
   )
 }
 

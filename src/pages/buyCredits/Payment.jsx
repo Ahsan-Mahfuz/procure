@@ -13,9 +13,9 @@ const Payment = () => {
       </div>
 
       <h2 className="text-xl font-semibold mt-6">Choose Payment Method</h2>
-      <form className="mt-2 space-y-2" onClick={(e) => e.preventDefault()}>
+      <form className="mt-2 space-y-2" onSubmit={(e) => e.preventDefault()}>
         {['Credit Card', 'Paypal', 'Others'].map((method) => (
-          <label
+          <div
             key={method}
             className="flex items-center space-x-2 cursor-pointer"
           >
@@ -28,7 +28,7 @@ const Payment = () => {
               className="form-radio h-5 w-5 text-gray-600 cursor-pointer"
             />
             <span className="text-gray-700">{method}</span>
-          </label>
+          </div>
         ))}
 
         <div className="flex justify-end">

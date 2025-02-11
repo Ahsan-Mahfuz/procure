@@ -5,9 +5,9 @@ const JoinNow = () => {
   return (
     <div className="mt-10">
       <h1 className="text-center text-4xl ">
-        Do you a business and want ne customers?
+        Do you have a business and want new customers?
       </h1>
-      <p className="text-center text-xl text-gray-600 mt-5">
+      <p className="text-center text-xl text-gray-600 mt-5  ">
         Add your business and to our network and join as a pro
       </p>
       <div className="flex items-center justify-center mt-5">

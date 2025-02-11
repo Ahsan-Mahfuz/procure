@@ -2,6 +2,7 @@ import React from 'react'
 import { Form, Input, Button } from 'antd'
 import { useNavigate } from 'react-router-dom'
 import rightSideImage from '../../assets/passwordPicture.png'
+import SEO from '../seo/SEO'
 
 const ForgetPassword = () => {
   const navigate = useNavigate()
@@ -11,76 +12,83 @@ const ForgetPassword = () => {
   }
 
   return (
-    <div className="h-screen flex text-white flex-col lg:flex-row">
-      <div className="w-full lg:w-1/2 h-screen  flex flex-col justify-center items-center p-12 bg-black">
-        <h1
-          className="text-[50px] font-bold mb-2 whitespace-nowrap"
-          style={{ fontSize: 'clamp(20px, 10vw, 50px)' }}
-        >
-          Forgot Password?
-        </h1>
-        <p
-          className="text-lg mb-8 whitespace-nowrap"
-          style={{ fontSize: 'clamp(12px, 5vw, 20px)' }}
-        >
-          No worries, we’ll send reset instructions
-        </p>
-
-        <Form
-          requiredMark={false}
-          layout="vertical"
-          onFinish={onFinish}
-          className="w-full max-w-sm"
-        >
-          <Form.Item
-            name="email"
-            label={<span className="text-white ">Email</span>}
-            rules={[
-              {
-                type: 'email',
-                message: 'The input is not valid E-mail!',
-              },
-              {
-                required: true,
-                message: 'Please enter your email!',
-              },
-            ]}
+    <>
+      <SEO
+        title="Forgot Password"
+        description="Forgot your password? No worries, we’ll send reset instructions to get quotes, read reviews and hire trusted professionals for your home services, handyman services, home cleaning, moving, and more with Procure."
+        keywords="Procure, forgot password, trusted professionals, home services, handyman services, home cleaning, moving, get quotes, read reviews"
+      />
+      <div className="h-screen flex text-white flex-col lg:flex-row">
+        <div className="w-full lg:w-1/2 h-screen  flex flex-col justify-center items-center p-12 bg-black">
+          <h1
+            className="text-[50px] font-bold mb-2 whitespace-nowrap"
+            style={{ fontSize: 'clamp(20px, 10vw, 50px)' }}
           >
-            <Input
-              placeholder="Enter Email"
-              className="h-[42px] px-4 bg-black border-gray-300 rounded-md"
-              style={{
-                backgroundColor: 'black',
-                color: 'white',
-              }}
-            />
-          </Form.Item>
+            Forgot Password?
+          </h1>
+          <p
+            className="text-lg mb-8 whitespace-nowrap"
+            style={{ fontSize: 'clamp(12px, 5vw, 20px)' }}
+          >
+            No worries, we’ll send reset instructions
+          </p>
 
-          <Form.Item>
-            <Button
-              type="primary"
-              htmlType="submit"
-              style={{
-                backgroundColor: '#0D9276',
-                color: 'white',
-                padding: '1.25rem',
-              }}
-              className="w-full rounded-full h-11 mt-10"
+          <Form
+            requiredMark={false}
+            layout="vertical"
+            onFinish={onFinish}
+            className="w-full max-w-sm"
+          >
+            <Form.Item
+              name="email"
+              label={<span className="text-white ">Email</span>}
+              rules={[
+                {
+                  type: 'email',
+                  message: 'The input is not valid E-mail!',
+                },
+                {
+                  required: true,
+                  message: 'Please enter your email!',
+                },
+              ]}
             >
-              Reset password
-            </Button>
-          </Form.Item>
-        </Form>
-      </div>
+              <Input
+                placeholder="Enter Email"
+                className="h-[42px] px-4 bg-black border-gray-300 rounded-md"
+                style={{
+                  backgroundColor: 'black',
+                  color: 'white',
+                }}
+              />
+            </Form.Item>
 
-      <div className="w-1/2 hidden lg:block">
-        <img
-          src={rightSideImage}
-          alt="password-reset"
-          className="w-full h-full object-cover"
-        />
+            <Form.Item>
+              <Button
+                type="primary"
+                htmlType="submit"
+                style={{
+                  backgroundColor: '#0D9276',
+                  color: 'white',
+                  padding: '1.25rem',
+                }}
+                className="w-full rounded-full h-11 mt-10"
+              >
+                Reset password
+              </Button>
+            </Form.Item>
+          </Form>
+        </div>
+
+        <div className="w-1/2 hidden lg:block">
+          <img
+            src={rightSideImage}
+            alt="password-reset"
+            className="w-full h-full object-cover"
+          />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

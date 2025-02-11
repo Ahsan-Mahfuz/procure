@@ -1,5 +1,6 @@
 import React from 'react'
 import { Pagination } from 'antd' // Import Ant Design Pagination component
+import SEO from '../seo/SEO'
 
 const Notification = () => {
   const notificationList = [
@@ -67,17 +68,24 @@ const Notification = () => {
   }
 
   return (
-    <div className="flex gap-1 flex-col p-4">
-      {notificationList.map((notification) => (
-        <div className="p-4 border-b border-gray-300" key={notification.key}>
-          <h3 className="text-lg font-semibold">{notification.title}</h3>
-          <p className="text-sm text-gray-500">{notification.Descriptions}</p>
+    <>
+      <SEO
+        title="Notifications"
+        description="View all your notifications on Procure."
+        keywords="Procure, notifications, procurement, suppliers"
+      />
+      <div className="flex gap-1 flex-col p-4">
+        {notificationList.map((notification) => (
+          <div className="p-4 border-b border-gray-300" key={notification.key}>
+            <h3 className="text-lg font-semibold">{notification.title}</h3>
+            <p className="text-sm text-gray-500">{notification.Descriptions}</p>
+          </div>
+        ))}
+        <div className="flex justify-center mt-4">
+          <Pagination {...paginationProps} total={notificationList.length} />
         </div>
-      ))}
-      <div className="flex justify-center mt-4">
-        <Pagination {...paginationProps} total={notificationList.length} />
       </div>
-    </div>
+    </>
   )
 }
 
